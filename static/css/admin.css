@@ -1,0 +1,182 @@
+*{
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	font-family: arial, Helvetica, sans-serif;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+}
+
+div#main{
+	height: 100%;
+}
+
+div#left{
+	width: 20%;
+	height: 100%;
+	float: left;
+	background-color: #052e3d;
+	color: white;
+}
+
+ul#ul-main{
+	list-style-type: none;
+	font-size: 18px;
+}
+
+ul#ul-main li{
+}
+
+ul#ul-main li:hover ul{
+	max-height: 100px;
+}
+
+ul#ul-main li a{
+	display: block;
+	text-align: center;
+	padding: 8px;
+	text-decoration: none;	
+	color: white;
+	border-bottom: 0.5px solid rgb(100, 100, 100);
+	cursor: pointer;
+}
+ul#ul-main li a:hover{
+	background-color: rgb(40, 40, 40);
+}
+
+ul#child{
+	background-color: black;
+	max-height: 0;
+	transition: 0.5s;
+	overflow: hidden;
+}
+	
+div#right{
+	width: 80%;
+	height: 100%;
+	float: left;
+	background-color: rgb(240, 240, 240);
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+div#right > div{
+	border: 1px solid rgb(200, 200, 200);
+	margin-top: 5px;
+	background-color: white;
+}
+div#right > div:not(:first-child){
+	max-height: 0;
+	border: none;
+	overflow: hidden;
+}
+
+div.admin-panel{
+	color: #051e3d;
+	font-size: 20px;
+	padding: 10px;
+}
+
+div.admin-panel i{
+	display: block;
+	width: 3%;
+	font-size: 40px;
+	float: left;
+}
+
+div.admin-panel span{
+	float: left;
+	width: 95%;
+}
+
+div.users-title{
+	border: 1px solid rgb(200, 200, 200);
+	margin: 10px 0 10px 0;
+}
+
+
+div.users-title ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div.users-title li{
+	float: left;
+	width: 10%;
+	text-align: center;
+	border-right: 1px solid rgb(200, 200, 200);
+	padding: 10px;
+	background-color: #052e3d;
+	color: white;
+	cursor: pointer;
+}
+div.users-title li:hover{
+	background-color: #051e3d;
+}
+
+table{
+	width: 100%;
+	padding: 10px;
+}
+
+table th, td{
+	border: 1px solid #052e3d;
+	border-radius: 5px;
+}
+
+td.td-id{
+	width: 50px;
+}
+
+th{
+	padding: 10px;
+}
+
+td.td-process{
+	width: 200px;
+}
+
+input[type=text]{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 13px;
+	font-size: 14px;
+}
+
+input[type=button]{
+	display: block;
+	width: 45%;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+}
+input[type=button]:hover{
+	box-shadow: 0 0 5px 0 blue;
+}
+
+input.left{
+	background-color: red;
+	float: left;
+	margin-left: 2px;
+}
+
+input.right{
+	background-color: green;
+	float: right;
+	margin-right: 2px;
+}
+
+input.add-input{
+	width: 100%;
+	background-color: green;
+}

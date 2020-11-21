@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Basliq</title>
+		<meta charset='UTF-8'>
+		<link rel='stylesheet' href='{{url_for("static", filename="css/main.css")}}'>
+		<link rel='stylesheet' href='../static/css/main.css'>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		{% block head %}
+		{% endblock %}
+	</head>
+	
+	<body>
+		<div id='main'>
+			<div id='title'>
+				<a href='/'>School.<span>Com</span></a>
+			</div>
+				
+			<header id='main-top-menu'>
+				<div id='top-menu'>
+					<ul>
+						<li><a onclick='test()'><i class='fa fa-bars'></i></a></li>
+						<li><a><i class='w3-big fa fa-home'></i></a></li>
+						<li><a href='/html/html_introduction.html'>Html</a></li>
+						<li><a href=''>Css</a></li>
+						<li><a href=''>Javascript</a></li>
+						<li><a href=''>Python</a></li>
+						<li id='forum'><a href="/user">Forum</a></li>
+					</ul>
+				</div>
+			</header>
+
+			<div id='left_menu'>
+				{% block left_menu%}
+					<h4>HTML and  CSS</h4>
+					<a>Learn HTML</a>
+					<a>Learn CSS</a>
+					<h4>Javascript</h4>
+					<a>Learn Javascript</a>
+				{% endblock %}
+			</div>
+
+			<div id='right_menu' onclick='test2()'>
+				{% block main %}
+					<div class='p-language html'>
+	
+						<div class='left shadow'>
+							<p class='name-language'>HTML</p>
+							<p class='p-title'>The language for building web pages</p>
+							
+						</div>
+
+						<div class='right'>
+							<p class='example'>HTML Example</p>
+							<div class='code'>
+								<<span class='code'>DOCTYPE html</span>></br>
+                        					<<span class='code'>html</span>></br>
+								<<span class='code'>head</span>></br>
+                      	  					<<span class='code'>/head</span>></br>
+                        					<<span class='code'>body</span>></br>
+
+                        					<<span class='code'>p</span>> Hello HTML <<span class='code'>p></br>
+                        					<<span class='code'>/body</span>></br>
+                        					<<span class='code'>/html</span>></br>
+							</div>
+							<button class='button'>Try it yourself</button>
+						</div>
+					</div>
+
+					<div class='p-language css'>
+
+						<div class='right'>
+
+							<p class='example'>CSS Example</p>
+							<div class='code'>
+								<span class='code1'>body</span>{</br>
+								<span class='code'>background-color:</span>
+								<span class='code2'>blue</span></br>}</br>
+	
+								<span class='code1'>h1</span>{</br>
+								<span class='code'>color:</span>
+								<span class='code2'>white</span></br>}
+							</div>
+							<button class='button'>Try it yourself</button>
+						</div>
+	
+						<div class='left shadow'>
+							<p class='name-language'>CSS</p>
+							<p class='p-title'>The language for building web pages</p>
+						</div>
+
+					</div>
+
+				{% endblock %}
+			</div>
+		</div>
+
+		<script src="{{url_for('static', filename='javascript/main.js')}}"></script>
+
+	</body>
+</html>
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel='stylesheet' href='../static/css/form.css'>
+		{% block head %}
+		{% endblock %}
+	</head>
+
+	<body>
+
+		<div id='main'>
+			<div id='title'>
+				<div class='title-in'>
+					<ul>
+						<li><a href="/">Main menu</a></li>
+						<li class='exit'><a href="/user/logout">Exit</a></li>
+					</ul>
+				</div>
+			</div>
+
+			{% block yeni_konu %}
+				<div id='yeni_konu'>
+					<input type='button' value='Yeni Konu' class='yeni_konu' onclick='openNewMenu()'>
+				</div>
+			{% endblock %}
+
+			{% block contents %}
+				<div class='content'>
+					<table class='t-content'>
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th>Konu</th>
+								<th>Yanit</th>
+								<th>Son ileti</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for i in content %}
+								<tr>
+									<td></td>
+									<td></td>
+									<td class='users-about'>
+										<a href='/contents/{{ i[0] }}' class = 'title'>{{ i[3] }}</a>
+										<p class='user'>User: <a>{{ i[2] }}</a></p>
+									</td>
+									<td class='test'>Yanit</td>
+									<td class='test'>Son ileti</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			{% endblock %}
+
+			{% block new_menu %}
+				<div id='new_menu'>
+					<form action='/notready' id='form' method='post'>
+						<div>
+							<input type='text' placeholder='Yeno konu' name='konu'>
+							<select name='thema'>
+								<option value='python'>Python</option>
+								<option value='java'>Java</option>
+							</select>
+							<textarea name='icerik'></textarea>
+						</div>
+						<div>
+							<input type='submit' value='Konu olusdur'>
+							<input type='button' value='Kapat' onclick = "closeNewMenu()" style='float: right;'>
+						</div>
+					</form>
+				</div>
+			{% endblock %}
+		</div>
+
+		<footer>
+		</footer>
+
+		<script src='../static/javascript/form.js'></script>
+		{% block end %}
+		{% endblock %}
+	</body>
+</html>

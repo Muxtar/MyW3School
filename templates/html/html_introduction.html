@@ -1,0 +1,46 @@
+{% extends 'html/html_home.html' %}
+
+{% block head2 %}
+	<link rel='stylesheet' href="{{url_for('static', filename='css/html/html_introduction.css')}}">
+{% endblock %}
+
+{% block main %}
+	<h2 class='t_title'>HTML Tutorial</h2>
+
+	<div class='mr_panel'>
+		<p>HTML is the standard markup language for Web pages.</p>
+
+		<p>With HTML you can create your own Website.</p>
+
+		<p>This tutorial follows the latest HTML5 standard.</p>
+
+		<p>HTML is easy to learn - You will enjoy it!</p>
+	</div>
+	
+	<h2 class='t_title'>
+		Easy Learning with HTML "Try it Yourself"
+	</h2>
+
+	<p class='normal'>
+		With our "Try it Yourself" editor, 
+		you can edit the HTML code and view the result:
+	</p>
+
+	<div class='example'>
+		<h3>Example</h3>
+
+		<div class='code'>
+			<<span class='code'>DOCTYPE html</span>></br>
+			<<span class='code'>html</span>></br>
+			<<span class='code'>head</span>></br>
+			<<span class='code'>/head</span>></br>
+			<<span class='code'>body</span>></br>
+
+			<<span class='code'>p</span>> Hello HTML <<span class='code'>p></br>
+			<<span class='code'>/body</span>></br
+			<<span class='code'>/html</span>></br>
+		</div>
+		<a href='#' class='try_yourself'>Try it yourself >></a>
+	</div>
+	
+{% endblock %}

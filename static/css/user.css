@@ -1,0 +1,90 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+div#main{
+	width: 30%;
+	margin: auto;
+	margin-top: 100px;
+	padding: 10px;
+	box-shadow: 0 0 10px black;
+	border-radius: 10px;
+	box-shadow: 0 0 2px rgb(100, 100, 100);
+}
+
+div#title{
+	overflow: auto;
+}
+
+div#title div{
+	width: 47.9%;
+	float: left;
+	/*text-align: center;*/
+	padding: 10px;
+	margin: 5px;
+	box-sizing: border-box;
+	background-color: #00BFFF;
+	color: white;
+	padding: 14px 5px;
+	font-size: 17px;
+	font-weight: bold;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+div#title div:hover{
+	box-shadow: 0 0 10px #00BFFF;
+}
+
+div#login{
+	display: none;
+}
+
+div#body div *{
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+input[type=text], input[type=password], input[type=gmail]{
+	width: 70%;
+	padding: 15px 10px;
+	background-color: rgb(240, 240, 240);
+	border: 1px solid rgb(200, 200, 200);
+}
+
+input[type=submit]{
+	width: 40%;
+	padding: 14px 5px;
+	font-size: 17px;
+	background-color: #00BFFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+select{
+	width: 40%;
+	padding: 10px 5px;
+	border: 1px solid rgb(200, 200, 200);
+	text-align: center;
+	color: rgb(120, 120, 120);
+}
+
+::placeholder{
+	text-align: center;	
+}
+
+div#notifaction{
+	color: red;
+	text-align: center;
+	text-shadow: 0 0 1px red;
+}

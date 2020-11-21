@@ -1,0 +1,77 @@
+{% extends 'form.html' %}
+
+{% block head %}
+	<link rel='stylesheet' href='../static/css/contents.css'>
+{% endblock %}
+
+{% block yeni_konu %}
+	<div id='yeni_konu'>
+		<input type='button' value='Cevapla' class='yeni_konu' onclick = 'openNewMenu()'>
+	</div>
+{% endblock %}
+
+{% block contents %}
+
+	<div id='basliq'>
+		<div class='yoxla'>
+			<p class='content-title'>{{ titles[0][5] }}</p>	
+			<p class='title genel'>{{ titles[0][3] }}</p>
+			<p class='thema genel'><span class='span-test'></span>{{ titles[0][4] }}</p>
+			<p class='username genel'><span class='span-test'></span>{{ titles[0][2] }}</p>
+		</div>
+	</div>
+
+	<div id='contents'>
+		{% if contents %}
+			{% for i in contents %}
+				<div id='content'>
+					<div class='user'>
+						<p class='user-name genel'><span class='span-test'></span>{{ i[3] }}</p>
+					</div>
+
+					<div class='in-content'>
+						<p class='user-content'>{{ i[6] }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+
+{% endblock %}
+
+{% block new_menu %}
+	<div id='new_menu'>
+		<form id='form' method='post'>
+			<div>
+                                <textarea id='icerik'></textarea>
+                        </div>
+			<div>
+
+				<input type='button' value='Cevapla' id='cevap'>
+				<input type='button' value='Kapat' onclick = "closeNewMenu()" style='float: right;'>
+			</div>
+		</form>
+	</div>
+{% endblock %}
+
+{% block end %}
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('#cevap').bind('click', function(){
+				var userName = '{{ userName }}';
+				$.ajax({
+					url: '/yoxla',
+					type: 'POST',
+					data: {
+						icerik: $('#icerik').val()
+					},
+					success: function(returnData){
+						$('#contents').append("<div id='content'> <div class='user'> <p class='user-name genel'><span class='span-test'></span>"+userName+"</p> </div> <div class='in-content'><p class='user-content'>"+$('#icerik').val()+"</p></div> </div>");
+					}
+				})
+			})
+		})
+	</script>
+{% endblock %}
+

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='stylesheet' href='../static/css/admin.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+	<body>
+		<div id='main'>
+
+			<div id='left'>
+				<div id='links'>
+					<ul id='ul-main'>
+						<li><a onclick='test("users")'>Users</a></li>
+						<li><a>Contents</a>
+							<ul id='child'>
+								<li><a onclick='test("ready")'>Ready</a></li>
+								<li><a onclick='test("unready")'>UnReady</a></li>
+							</ul>
+						</li>
+						<li><a href='#'>About</a>
+					</ul>
+				</div>
+			</div>
+
+			<div id='right'>
+					<div class='admin-panel'>
+						<i class='fa fa-user fa-large'></i>
+						<span>Admin Panel</span>
+					</div>
+
+					<div id='users'>
+						<div class='users-title'>
+							<ul>
+								<li onclick='show("#div-users")'>Members</li>
+								<li onclick='show("#div-add-users")'>Add Members</li>
+							</ul>
+						</div>
+
+						<div>
+							<table>
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>fName</th>
+										<th>lName</th>
+										<th>Gender</th>
+										<th>Gmail</th>
+										<th>Password</th>
+										<th>Status</th>
+										<th>Option</td>
+									</tr>
+								</thead>
+								<tbody>
+									{% if users %}
+										{% for i in users %}
+											<tr id='{{ i[0] }}'>
+												<td class='td-id'><input type='text' value='{{ i[0] }}' id='id{{ i[0] }}'></td>
+												<td><input type='text' value='{{ i[1] }}' id='fname{{ i[0] }}'></td>
+												<td><input type='text' value='{{ i[2] }}' id='lname{{ i[0] }}'></td>
+												<td><input type='text' value='{{ i[3] }}' id='gender{{ i[0] }}'></td>
+												<td><input type='text' value='{{ i[4] }}' id='gmail{{ i[0] }}'></td>
+												<td><input type='text' value='{{ i[5] }}' id='password{{ i[0] }}'></td>
+												<td><input type='text' value='{{ i[6] }}' id='status{{ i[0] }}'></td>
+												<td class='td-process'><input class='left' type='button' value='Delete' onclick='userDelete({{ i[0] }})'><input class='right' type='button' value='Edit' onclick='userEdit({{ i[0] }})'></td>
+											</tr>
+										{% endfor %}
+									{% endif %}
+								</tbody>
+							</table>
+						</div>
+						<div>
+							<table>
+								<tr>
+									<td colspan='2'><input type='text' placeholder='fname' id='addFname'></td>
+									<td><input type='text' placeholder='lname' id='addLname'></td>
+									<td><input type='text' placeholder='gender' id='addGender'></td>
+									<td><input type='text' placeholder='gamil' id='addGmail'></td>
+									<td><input type='text' placeholder='password' id='addPassword'></td>
+									<td><input type='text' placeholder='status' id='addStatus'></td>
+									<td class='td-process'><input class='add-input' type='button' value='Add' id='addButton' onclick='addUser()'></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+
+
+					<div id='not-ready'>
+						<table>
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>UserId</th>
+									<th>UserName</th>
+									<th>Title</th>
+									<th>Thema</th>
+									<th>Content</th>
+									<th>Process</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% if notReady %}
+									{% for i in notReady %}
+									<tr id='notReady{{ i[0] }}'>
+											<td class='td-id'><input type='text' value='{{ i[0] }}' id='notReadyId{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[1] }}' id='notReadyUserId{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[2] }}' id='notReadyUserName{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[3] }}' id='notReadyTitle{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[4] }}' id='notReadyThema{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[5] }}' id='notReadyContent{{ i[0] }}'</td>
+											<td class='td-process'><input class='left' type='button' value='Send' onclick='notReadySend({{ i[0] }})'><input class='right' type='button' value='Delete' onclick = 'notReadyDelete({{ i[0] }})'></td>
+										</tr>
+									{% endfor %}
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+					<div id='ready'>
+						<table>
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>UserId</th>
+									<th>UserName</th>
+									<th>Title</th>
+									<th>thema</th>
+									<th>content</th>
+									<th>Process</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								{% if ready %}
+									{% for i in ready %}
+										<tr>
+											<td class='td-id'><input type='text' value='{{ i[0] }}' id='readyId{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[1] }}' id='readyUserId{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[2] }}' id='readyUserName{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[3] }}' id='readyTitle{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[4] }}' id='readyThema{{ i[0] }}'></td>
+											<td><input type='text' value='{{ i[5] }}' id='readyConent{{ i[0] }}'></td>
+											<td class='td-process'><input class='left' type='button' value='Delete'><input class='right' type='button' value='Edit'></td>
+										</tr>
+									{% endfor %}
+								{% endif %}
+							</tbody>
+
+						</table>
+					</div>
+
+				</div>
+
+			</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<script>
+			function userDelete(userId){
+				if(confirm('Are you sure?')){
+
+					var id = document.getElementById('id'+userId).value;
+					var idTr = "#"+id;
+
+
+					$.ajax({
+						url: '/delete',
+						type: 'post',
+						data: {
+							id: id,
+						},
+						success: function ( veri ){
+							$(idTr).remove();
+								
+						}
+					});
+				}
+			}
+
+			function userEdit(userId){
+				if(confirm('Are you sure?')){
+					var id = document.getElementById('id'+userId).value;
+					var fname = document.getElementById('fname'+userId).value;
+					var lname = document.getElementById('lname'+userId).value;
+					var gender = document.getElementById('gender'+userId).value;
+					var gmail = document.getElementById('gmail'+userId).value;
+					var password = document.getElementById('password'+userId).value;
+					var userStatus = document.getElementById('status'+userId).value;
+
+					$.ajax({
+						url: '/edit',
+						type: 'post',
+						data: {
+							id: id,
+							fname: fname,
+							lname: lname,
+							gender: gender,
+							gmail: gmail,
+							password: password,
+							userStatus: userStatus
+						}
+					})
+				}
+			}
+
+			function addUser(){
+				var fname = document.getElementById('addFname').value;
+				var lname = document.getElementById('addLname').value;
+				var gender = document.getElementById('addGender').value;
+				var gmail = document.getElementById('addGmail').value;
+				var password = document.getElementById('addPassword').value;
+				var userStatus = document.getElementById('addStatus').value;
+
+				if(confirm('Are your sure?')){
+					$.ajax({
+						url: '/add',
+						type: 'post',
+						data: {
+							fname: fname,
+							lname: lname,
+							gender: gender,
+							gmail: gmail,
+							password: password,
+							userStatus: userStatus
+						},
+						success: function( userId ){
+							var tableUsers = document.getElementsByTagName('tbody')[0];
+
+							var tr = document.createElement('tr');
+							tr.setAttribute('id', userId)
+
+							var tdId = document.createElement('td');
+							var tdFname = document.createElement('td');
+							var tdLname = document.createElement('td');
+							var tdGender = document.createElement('td');
+							var tdGmail = document.createElement('td');
+							var tdPassword = document.createElement('td');
+							var tdStatus = document.createElement('td');
+							var tdEditDelete = document.createElement('td');
+
+							var inputId = document.createElement('input');
+							var inputFname= document.createElement('input');
+							var inputLname = document.createElement('input');
+							var inputGender = document.createElement('input');
+							var inputGmail = document.createElement('input');
+							var inputPassword = document.createElement('input');
+							var inputStatus = document.createElement('input');
+
+							inputId.setAttribute('type', 'text');
+							inputId.setAttribute('id', 'id'+userId)
+
+							inputFname.setAttribute('type', 'text');
+							inputFname.setAttribute('id', 'fname'+userId);
+
+							inputLname.setAttribute('type', 'text');
+							inputLname.setAttribute('id', 'fname'+userId);
+
+							inputGender.setAttribute('type', 'text');
+							inputGender.setAttribute('id', 'gender'+userId);
+
+							inputGmail.setAttribute('type', 'text');
+							inputGmail.setAttribute('id', 'gmail'+userId);
+
+							inputPassword.setAttribute('type', 'text');
+							inputPassword.setAttribute('id', 'password'+userId);
+
+							inputStatus.setAttribute('type', 'text');
+							inputStatus.setAttribute('id', 'status'+userId);
+
+
+							var inputDelete = document.createElement('input');
+							var inputEdit = document.createElement('input');
+
+							var fonkName = "userDelete("+userId+")";
+							inputDelete.setAttribute('onclick', fonkName);
+							inputDelete.setAttribute('type', 'button');
+							inputDelete.setAttribute('value', 'Delete');
+							inputDelete.setAttribute('class', 'left');
+
+							fonkName = "userEdit("+userId+")";
+							inputEdit.setAttribute('type', 'button');
+							inputEdit.setAttribute('onclick', fonkName);
+							inputEdit.setAttribute('value', 'Edit');
+							inputEdit.setAttribute('class', 'right');
+
+							tdId.setAttribute('style', 'width: 40px;');
+							tdEditDelete.setAttribute('style', '140px;')
+
+							inputId.value = userId;
+							inputFname.value = fname;
+							inputLname.value = lname;
+							inputGender.value = gender;
+							inputGmail.value = gmail;
+							inputPassword.value = password;
+							inputStatus.value = userStatus;
+
+
+							tdId.appendChild(inputId);
+							tdFname.appendChild(inputFname);
+							tdLname.appendChild(inputLname);
+							tdGender.appendChild(inputGender);
+							tdGmail.appendChild(inputGmail);
+							tdPassword.appendChild(inputPassword);
+							tdStatus.appendChild(inputStatus);
+							tdEditDelete.appendChild(inputDelete);
+							tdEditDelete.appendChild(inputEdit);
+
+							tr.appendChild(tdId);
+							tr.appendChild(tdFname);
+							tr.appendChild(tdLname);
+							tr.appendChild(tdGender);
+							tr.appendChild(tdGmail);
+							tr.appendChild(tdPassword);
+							tr.appendChild(tdStatus);
+							tr.appendChild(tdEditDelete);
+
+							tableUsers.appendChild(tr);
+
+						}
+
+
+					})
+
+					var addFname = document.getElementById('addFname');
+					var addLname = document.getElementById('addLname');
+					var addGender = document.getElementById('addGender');
+					var addGmail = document.getElementById('addGmail');
+					var addPassword = document.getElementById('addPassword');
+					var addStatus = document.getElementById('addStatus');
+
+					addFname.value = '';
+					addLname.value = '';
+					addGender.value = '';
+					addGmail.value = '';
+					addPassword.value = '';
+					addStatus.value = '';
+				}
+
+			}
+
+			function notReadySend( id1 ){
+				var id = document.getElementById('notReadyId'+id1).value;
+				var userId = document.getElementById('notReadyUserId'+id1).value;
+				var userName = document.getElementById('notReadyUserName'+id1).value;
+				var title = document.getElementById('notReadyTitle'+id1).value;
+				var thema = document.getElementById('notReadyThema'+id1).value;
+				var content = document.getElementById('notReadyContent'+id1).value;
+				var tr = "#notReady"+id1;
+
+
+				$.ajax({
+					url: '/notReadySend',
+					type: 'post',
+					data: {
+						id: id,
+						userId: userId,
+						userName: userName,
+						title: title,
+						thema: thema,
+						content: content
+					},
+					success: function ( returnVal ){
+						$(tr).remove();
+
+					}
+				})
+			}
+
+			function notReadyDelete( id1 ){
+				var tr = "#notReady"+id1;
+				var id = id1;
+
+				$.ajax({
+					url: '/notReadyDelete'	,
+					type: 'post',
+					data: {
+						id: id
+					},
+					success: function ( returnVal ){
+						$(tr).remove();
+					}
+
+				})
+			}
+
+			function test( args ){
+				var users = document.getElementById('users');
+				var notReady = document.getElementById('not-ready');
+				var ready = document.getElementById('ready');
+
+				if(args == 'users'){
+					if(users.style.maxHeight == "500px"){
+						users.style.maxHeight = "0px";	
+					}
+					else{
+						users.style.maxHeight = "500px";
+					}
+				}
+				else if(args == 'ready'){
+					if(ready.style.maxHeight == "500px"){
+						ready.style.maxHeight = "0px";
+					}
+					else{
+						ready.style.maxHeight = "500px";
+					}
+				}
+
+				else{
+					if(notReady.style.maxHeight == "500px"){
+						notReady.style.maxHeight = "0px";
+					}
+					else{
+						notReady.style.maxHeight = "500px";
+					}
+				}
+			}
+		</script>
+
+	</body>
+</html>

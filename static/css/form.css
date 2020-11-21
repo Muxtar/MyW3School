@@ -1,0 +1,199 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+}
+
+body{
+	background-image: url("../img/pattern6.png");
+}
+
+
+div#main{
+	width: 100%;
+	margin: auto;
+	position: relative;
+	height: 500px;
+}
+
+div#title{
+	height: 45px;
+	background-color: #052e3d;
+	position: sticky;
+	top: 0;
+}
+
+div.title-in{
+	width: 90%;
+	margin: auto;
+}
+
+div.title-in ul{
+	list-style-type: none;
+}
+
+div.title-in ul li{
+	float: left;
+}
+div.title-in ul li.exit{
+	float: right;
+}
+
+div.title-in ul li a{
+	display: inline-block;
+	line-height: 45px;
+	text-decoration: none;
+	color: white;
+	padding: 0 20px;
+	border-left: 1px solid rgb(50, 50, 50);
+	border-right: 1px solid rgb(50, 50, 50);
+}
+
+div.title-in ul li a:hover{
+	background-color: black;	
+}
+
+
+div#yeni_konu{
+	margin: auto;
+	overflow: auto;
+	padding: 4px;
+	box-sizing: border-box;
+	margin: 10px 10px 10px 0;
+	position: sticky;
+	top: 60px;
+}
+
+.yeni_konu{
+	background-color: green;
+	color: white;
+	border: none;
+	padding: 10px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 4px;
+	float: right;
+}
+
+div.content{
+	width: 90%;
+	margin: auto;
+}
+
+table.t-content{
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 15px;
+}
+
+thead{
+	background-color: green;
+	color: white;
+	text-align: left;
+}
+
+tbody tr{
+	background-color: rgb(235, 235, 235);
+	box-shadow: 0 0 1px 0 rgb(100, 100, 100);
+}
+
+th, td{
+	padding-left: 10px;
+}
+
+th{
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+td.test{
+	font-size: 14px;
+	font-weight: 100;
+}
+
+p.user{
+	margin-bottom: 10px;
+	font-size: 12px;
+	font-weight: 100;
+}
+
+a{
+	color: red;
+	text-decoration: none;
+}
+
+a.title{
+	color: green;
+	display: block;
+	margin: 10px 0;
+}
+
+td.users-about{
+}
+
+div#new_menu{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #222222;
+	max-height: 0;
+	transition: max-height 1s;
+}
+
+
+form{
+	padding: 10px;
+	border-top: 15px solid #0f82af;
+	overflow: auto;
+}
+
+div#new_menu form *{
+	display: block;
+	margin-bottom: 10px;
+	width: 100%;
+	font-size: 16px;
+	background-color: #222222;
+}
+
+div#new_menu input[type = text]{
+	box-sizing: border-box;
+	color: white;
+	padding: 10px;
+	border: 0.5px solid white;
+}
+
+div#new_menu input[type = button], div#new_menu input[type = submit]{
+	width: 15%;
+	padding: 5px;	
+	color: white;
+	padding: 10px;
+	cursor: pointer;
+	border: none;
+	background-color: #0f82af;
+	transition: box-shadow 0.2s;
+	float: left;
+}
+
+div#new_menu input[type = button]:hover, div#new_menu input[type = submit]:hover{
+	box-shadow: 0 0 10px 0 red;
+}
+
+div#new_menu select{
+	padding: 7px;
+	color: white;
+	padding: 10px;
+	border: 0.5px solid white;
+}
+
+div#new_menu textarea{
+	height: 200px;
+	color: white;
+	border: 0.5px solid white;
+	padding: 5px;
+	box-sizing: border-box;
+	resize: none;
+}
+
+@media screen and (max-width: 1200px){
+}

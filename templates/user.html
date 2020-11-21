@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<link rel='stylesheet' href="{{url_for('static', filename='css/user.css')}}">
+		<link rel='stylesheet' href="../static/css/user.css">
+	</head>
+
+	<body>
+		<div id='main'>
+			<div id='title'>
+				<div id='title-sigin' onclick = 'change(this)'>
+					Sig In
+				</div>
+
+				<div id='title-login' onclick = 'change(this)'>
+					Log In
+				</div>
+			</div>
+
+			<div id='body'>
+				<div id='sigin'>
+					<form action = '/user/sigin' method='post'>	
+						<input type='text' placeholder='Gmail' name='gmail' required = 'required' autofocus maxlength="40" minlength="3">
+						<input type='password' placeholder='Password' name='password' required = 'required' maxlength="40" minlength="4">
+						<input type='submit' value='Sigin'>
+					</form>
+				</div>
+
+
+				<div id='login'>
+					<form action='/user/login' method='post'>
+						<input type='text' placeholder='First Name' name='fname' required='required' maxlength="40" minlength="3">
+						<input type='text' placeholder='Last Name' name='lname' required='required' maxlength="40" minlength="3">
+						<input type='gmail' placeholder='Gmail' name='gmail' required='required' maxlength="40" minlength="10">
+						<select name='gender'>
+							<option value='man'>Man</option>
+							<option value='woman'>Woman</option>
+						</select>
+						<input type='password' placeholder='Password' name='fpassword' required='required' maxlength="30" minlength="4">
+						<input type='password' placeholder='Again Password' name='lpassword' required='required' maxlength="30" minlength="4">
+						<input type='submit' value='Login'>
+					</form>
+				</div>
+				<div id='notifaction'>
+					{% if error != True %}
+						{{ error }}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	<script src="{{url_for('static', filename='javascript/user.js')}}"></script>
+	<script src="../static/javascript/user.js"></script>
+
+	<script>
+		var loginOrSigin = '{{ loginOrSigin }}';
+		var login = document.getElementById('login');
+		var sigin = document.getElementById('sigin');
+
+		if(loginOrSigin == 'sigin'){
+			login.style.display = 'none';
+			sigin.style.display = 'block';
+		}
+
+		else{
+			sigin.style.display = 'none';
+			login.style.display = 'block';
+		}
+
+	</script>
+
+	</body>
+</html>

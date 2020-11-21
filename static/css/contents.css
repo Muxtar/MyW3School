@@ -1,0 +1,86 @@
+@import url('form.css');
+
+div#contents{
+	overflow: auto;
+}
+
+div#content{
+	width: 70%;
+	margin: auto;
+	background-color: rgb(240, 240, 240);
+	box-shadow: 0 0 1px 0 rgb(100, 100, 100);
+	overflow: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	min-height: 100px;
+	color: #051e3d;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+
+div.user{
+}
+
+div.in-content{
+}
+
+p.user-content{
+	padding: 5px;
+	margin: 5px;
+	font-size: 17px;
+	color: #051e3d;
+}
+
+div#basliq{
+	color: white;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+
+div.yoxla{
+	width: 70%;
+	margin: auto;
+	overflow: auto;
+}
+
+p.content-title{
+	background-color: #052e3d;
+	color: white;
+	padding: 10px;
+	font-size: 17px;
+	margin-bottom: 10px;
+	height: 200px;
+	overflow-y: scroll;
+}
+
+p.title{
+	color: #052e3d;
+	font-size: 25px;
+	padding-left: 10px;
+}
+
+p.thema{
+	color: #052e3d;
+	float: left;
+	padding-left: 10px;
+}
+
+p.username{
+	color: #052e3d;
+	float: left;
+	padding-left: 10px;
+}
+
+span.span-test{
+	background-color: green;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-right: 5px;
+}
+
+.genel{
+	font-weight: 50;
+	font-size: 14px;
+}

@@ -1,0 +1,55 @@
+h2.t_title{
+	padding: 10px;
+	font-size: 38px;
+}
+div.mr_panel{
+	background-color: #d4edda;
+	padding: 20px;
+}
+
+div.mr_panel p{
+	font-size: 17px;
+	letter-spacing: 1px;
+}
+
+p.normal{
+	font-size: 19px;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+div.example{
+	background-color: rgb(245, 245, 245);
+	padding: 10px;
+	padding-bottom: 25px;
+}
+
+/*
+div.example div.code{
+	border-left: 8px solid green;
+	background-color: white;
+	width: 97%;
+	margin: auto;
+	padding-left: 10px;
+	font-size: 17px;
+	height: 250px; 
+	overflow: scroll;
+}
+*/
+
+div.example a.try_yourself{
+	display: block;
+	width: 150px;
+	text-align: center;
+	font-size: 16px;
+	margin: 10px;
+	padding: 5px 2px;
+	background-color: green;
+	color: white;
+}
+
+/*
+span.code{
+	color: red;
+}
+*/
